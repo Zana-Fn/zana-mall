@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Product</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="module" src="cart.js" defer></script>
+</head>
+<style>
+    .loader {
+        height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f8f8f8;
+    }
+
+    #loader {
+        border: 8px solid #f3f3f3;
+        border-top: 8px solid #007bff;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 1s linear infinite;
+
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    #content {
+        display: none;
+        text-align: center;
+    }
+
+    .pre-page {
+        display: none;
+        transition: all 0.2s;
+    }
+</style>
+
+<body>
+    <div data-barba="container2">
+        <nav id="main-nav">
+            <ul>
+                <li class="main-logo-nav"><img src="img/logo-img-2.jpg" alt="logo"></li>
+                <li class="nav-items home"><a href="index.html">Home</a></li>
+                <li class="nav-items shop"><a href="shop.html">Shop</a></li>
+                <li class="nav-items about"><a href="about.html">About</a></li>
+                <li><a style="text-decoration: none;" href="cart.html">Cart <span id="cart-count">0</span></a></li>
+                <li class="cart-logo" id='display-on'><a href="cart.html"><svg xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg></a></li>
+                <li class="ham">
+                    <span class="ham-line one"></span>
+                    <span class="ham-line two"></span>
+                    <span class="ham-line three"></span>
+                </li>
+            </ul>
+
+        </nav>
+        <nav id="second-nav">
+            <ul>
+                <li class="nav-items home"><a href="index.html">Home</a></li>
+                <li class="nav-items shop"><a href="shop.html">Shop</a></li>
+                <li class="nav-items about"><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+        <div class="space"></div>
+        <div onclick="ChangeGobackB()" class="pre-page">
+            <h4>Go Back</h4>
+        </div>
+        <div class="container">
+            <div class="loader">
+                <div id='loader'></div>
+            </div>
+
+            <div id="content"></div>
+        </div>
+
+
+        <hr>
+        <div class="footer">
+            
+            <div class="main-logo-nav s"><img src="img/logo-img-2.jpg" alt="logo"></div>
+            <div class="detail">
+                <div class="contact">
+                    <p class="part">Contact</p>
+                    <p><span class="title">Address: </span>Iran,Kurdistan Province,Sanandaj</p>
+                    <p><span class="title">Phone: </span>+989922613695</p>
+                    <p><span class="title">Hours: </span>7:00am to 9:00pm</p>
+                </div>
+                <div class="content">
+                    <p class="part">Pages</p>
+                    <p><a href="about.html">About</a></p>
+                    <p><a href="shop.html">Shop</a></p>
+                    <p><a href="cart.html">Cart</a></p>
+                    
+                </div>
+                <div class="follow">
+                    <p class="part">Follow Us</p>
+                    <div class="logos-media">
+                        <i class="fa-brands fa-faebook"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-linkedin"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                </div>
+            </div>
+            <p class="end">© 2024 TIME USA, LLC. All Rights Reserved. Use of this site constitutes acceptance of our
+                Terms
+                of
+                Service</p>
+        </div>
+
+</body>
+
+<script type="module" src="scripts.js"></script>
+<script src="https://unpkg.com/@barba/core"></script>
+<script src="https://unpkg.com/gsap/dist/gsap.min.js"></script>
+
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="module" src="cart.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div data-barba="wrapper">
+        <div data-barba="container">
+            <nav id="main-nav">
+                <ul>
+                    <li class="main-logo-nav"><img src="img/logo-img-2.jpg" alt="logo"></li>
+                    <li class="nav-items home"><a href="index.html">Home</a></li>
+                    <li class="nav-items shop"><a href="shop.html">Shop</a></li>
+                    <li class="nav-items about"><a href="about.html">About</a></li>
+                    <li><a style="text-decoration: none;" href="cart.html">Cart <span id="cart-count">0</span></a></li>
+                    <li class="cart-logo" id='display-on'><a href="cart.html"><svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg></a></li>
+                    <li class="ham">
+                        <span class="ham-line one"></span>
+                        <span class="ham-line two"></span>
+                        <span class="ham-line three"></span>
+                    </li>
+                </ul>
+
+            </nav>
+            <nav id="second-nav">
+                <ul>
+                    <li class="nav-items home"><a href="index.html">Home</a></li>
+                    <li class="nav-items shop"><a href="shop.html">Shop</a></li>
+                    <li class="nav-items about"><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="space"></div>
+            <div onclick="ChangeGobackB()" class="pre-page">
+                <h4>Go Back</h4>
+            </div>
+            <div class="container">
+                <div class="welcome-2">
+                    <h2>#SHOP</h2>
+                </div>
+
+                <div class="products">
+                    <div class="cards">
+                        <div id="1" class="card-pro" data-id="1" data-name="T-Shirt" data-price="70">
+                            <div class="img"><img class="feachred-img" src="img/products/1-1.webp" alt=""></div>
+                            <h4>Cartoon T-Shirts</h4>
+                            <div class="strars">
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                            </div>
+                            <div class="desc">
+                                <p>$70</p>
+                                <a href="#" class="add-to-cart">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+
+                                </a>
+                            </div>
+                        </div>
+                        <div id="2" class="card-pro" data-id="2" data-name="T-Shirt" data-price="70">
+                            <div class="img"><img class="feachred-img" src="img/products/2-1.webp" alt=""></div>
+                            <h4>Cartoon T-Shirts</h4>
+                            <div class="strars">
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                            </div>
+                            <div class="desc">
+                                <p>$70</p>
+                                <a href="#" class="add-to-cart">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+
+                                </a>
+                            </div>
+                        </div>
+                        <div id="3" class="card-pro" data-id="3" data-name="T-Shirt" data-price="70">
+                            <div class="img"><img class="feachred-img" src="img/products/3-1.webp" alt=""></div>
+                            <h4>Cartoon T-Shirts</h4>
+                            <div class="strars">
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                            </div>
+                            <div class="desc">
+                                <p>$70</p>
+                                <a href="#" class="add-to-cart">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+
+                                </a>
+                            </div>
+                        </div>
+                        <div id="4" class="card-pro" data-id="4" data-name="T-Shirt" data-price="70">
+                            <div class="img"><img class="feachred-img" src="img/products/4-1.webp" alt=""></div>
+                            <h4>Cartoon T-Shirts</h4>
+                            <div class="strars">
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                            </div>
+                            <div class="desc">
+                                <p>$70</p>
+                                <a href="#" class="add-to-cart">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+
+                                </a>
+                            </div>
+                        </div>
+                        <div id="5" class="card-pro" data-id="5" data-name="T-Shirt" data-price="70">
+                            <div class="img"><img class="feachred-img" src="img/products/5-1.webp" alt=""></div>
+                            <h4>Cartoon T-Shirts</h4>
+                            <div class="strars">
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                            </div>
+                            <div class="desc">
+                                <p>$70</p>
+                                <a href="#" class="add-to-cart">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+
+                                </a>
+                            </div>
+                        </div>
+                        <div id="6" class="card-pro" data-id="6" data-name="T-Shirt" data-price="70">
+                            <div class="img"><img class="feachred-img" src="img/products/6-1.webp" alt=""></div>
+                            <h4>Cartoon T-Shirts</h4>
+                            <div class="strars">
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                            </div>
+                            <div class="desc">
+                                <p>$70</p>
+                                <a href="#" class="add-to-cart">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+
+                                </a>
+                            </div>
+                        </div>
+                        <div id="7" class="card-pro" data-id="7" data-name="T-Shirt" data-price="70">
+                            <div class="img"><img class="feachred-img" src="img/products/7-1.webp" alt=""></div>
+                            <h4>Cartoon T-Shirts</h4>
+                            <div class="strars">
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                            </div>
+                            <div class="desc">
+                                <p>$70</p>
+                                <a href="#" class="add-to-cart">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+
+                                </a>
+                            </div>
+                        </div>
+                        <div id="8" class="card-pro" data-id="8" data-name="T-Shirt" data-price="70">
+                            <div class="img"><img class="feachred-img" src="img/products/8-1.webp" alt=""></div>
+                            <h4>Cartoon T-Shirts</h4>
+                            <div class="strars">
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                            </div>
+                            <div class="desc">
+                                <p>$70</p>
+                                <a href="#" class="add-to-cart">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+
+                                </a>
+                            </div>
+                        </div>
+                        <div id="9" class="card-pro" data-id="9" data-name="T-Shirt" data-price="70">
+                            <div class="img"><img class="feachred-img" src="img/products/9-1.webp" alt=""></div>
+                            <h4>Cartoon T-Shirts</h4>
+                            <div class="strars">
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                            </div>
+                            <div class="desc">
+                                <p>$70</p>
+                                <a href="#" class="add-to-cart">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+
+                                </a>
+                            </div>
+                        </div>
+                        <div id="10" class="card-pro" data-id="10" data-name="T-Shirt" data-price="70">
+                            <div class="img"><img class="feachred-img" src="img/products/10-1.webp" alt=""></div>
+                            <h4>Cartoon T-Shirts</h4>
+                            <div class="strars">
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                            </div>
+                            <div class="desc">
+                                <p>$70</p>
+                                <a href="#" class="add-to-cart">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+
+                                </a>
+                            </div>
+                        </div>
+                        <div id="11" class="card-pro" data-id="11" data-name="T-Shirt" data-price="70">
+                            <div class="img"><img class="feachred-img" src="img/products/11-1.webp" alt=""></div>
+                            <h4>Cartoon T-Shirts</h4>
+                            <div class="strars">
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                            </div>
+                            <div class="desc">
+                                <p>$70</p>
+                                <a href="#" class="add-to-cart">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+
+                                </a>
+                            </div>
+                        </div>
+                        <div id="12" class="card-pro" data-id="12" data-name="T-Shirt" data-price="70">
+                            <div class="img"><img class="feachred-img" src="img/products/12-1.webp" alt=""></div>
+                            <h4>Cartoon T-Shirts</h4>
+                            <div class="strars">
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                                <i class="fa-solid fa-star fa-xs"></i>
+                            </div>
+                            <div class="desc">
+                                <p>$70</p>
+                                <a class="add-to-cart">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sign-up">
+                    <div class="news-text">
+                        <h3>Sign Up For Newsletters</h3>
+                        <p>Get E-main updates about our lastest and <span>special offers!</span></p>
+                    </div>
+                    <div class="form">
+                        <input type="text" placeholder="Your email address...">
+                        <button>Sign Up</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="footer">
+                    
+                    <div class="main-logo-nav s"><img src="img/logo-img-2.jpg" alt="logo"></div>
+                    <div class="detail">
+                        <div class="contact">
+                            <p class="part">Contact</p>
+                            <p><span class="title">Address: </span>Iran,Kurdistan Province,Sanandaj</p>
+                            <p><span class="title">Phone: </span>+989922613695</p>
+                            <p><span class="title">Hours: </span>7:00am to 9:00pm</p>
+                        </div>
+                        <div class="content">
+                            <p class="part">Pages</p>
+                            <p><a href="about.html">About</a></p>
+                            <p><a href="shop.html">Shop</a></p>
+                            <p><a href="cart.html">Cart</a></p>
+                            
+                        </div>
+                        <div class="follow">
+                            <p class="part">Follow Us</p>
+                            <div class="logos-media">
+                                <i class="fa-brands fa-faebook"></i>
+                                <i class="fa-brands fa-twitter"></i>
+                                <i class="fa-brands fa-linkedin"></i>
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="end">© 2024 TIME USA, LLC. All Rights Reserved. Use of this site constitutes acceptance of our
+                        Terms
+                        of
+                        Service</p>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+</body>
+
+<script src="https://unpkg.com/@barba/core"></script>
+
+<script src="https://unpkg.com/gsap/dist/gsap.min.js"></script>
+<script type="module" src="scripts.js"></script>
+
+
+
+</html>
