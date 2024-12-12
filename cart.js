@@ -15,10 +15,10 @@ window.updateCartCount = function () {
     const count = cart.reduce((total, item) => total + Number(item.quantity), 0);
     const countElement = document.getElementById('cart-count');
     if (countElement) {
-      countElement.textContent = count;
+        countElement.textContent = count;
     }
-  };
-  
+};
+
 // بازیابی cart از localStorage
 window.getCart = function () {
     return JSON.parse(localStorage.getItem('cart')) || [];
@@ -26,7 +26,7 @@ window.getCart = function () {
 
 // افزودن محصول به سبد خرید
 window.addToCartPage = function (productId, name, price, quantity = 1) {
-    
+
     const existingProduct = cart.find(item => item.id === productId);
     if (existingProduct) {
         existingProduct.quantity += Number(quantity);
@@ -35,7 +35,7 @@ window.addToCartPage = function (productId, name, price, quantity = 1) {
     }
     saveCart();
     updateCartCount();
-    
+
     toastr.success(`${quantity} x ${name} added to your cart!`);
 };
 
@@ -66,11 +66,11 @@ window.removeFromCart = function (productId) {
 
 // نمایش محصولات در سبد خرید
 window.displayCart = function (containerId) {
-   
+
     const cart = getCart(); // دریافت اطلاعات سبد خرید از localStorage
     const container = document.getElementById(containerId);
     container.innerHTML = ''; // پاک کردن محتوای قبلی
-    
+
     if (cart.length === 0) {
         container.textContent = 'Your cart is empty.';
         return;
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-if (window.location.pathname === '/front_end/zana%20mall/index.html') {
+if (window.location.pathname === '/front_end/zana_mall/index.html') {
     console.log('zzz')
     let addToCarts = document.querySelectorAll('.add-to-cart')
     addToCarts.forEach(button => {
@@ -136,7 +136,7 @@ if (window.location.pathname === '/front_end/zana%20mall/index.html') {
 
 }
 
-if (window.location.pathname === '/front_end/zana%20mall/shop.html') {
+if (window.location.pathname === '/front_end/zana_mall/shop.html') {
     console.log('zzz')
     let addToCarts = document.querySelectorAll('.add-to-cart')
     addToCarts.forEach(button => {
@@ -154,7 +154,7 @@ if (window.location.pathname === '/front_end/zana%20mall/shop.html') {
     })
 
 }
-if (window.location.pathname === '/front_end/zana%20mall/product.html') {
+if (window.location.pathname === '/front_end/zana_mall/product.html') {
     console.log('zzz')
     setTimeout(() => {
         let addToCart = document.querySelector('.add-to-cart')

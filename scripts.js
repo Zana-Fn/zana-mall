@@ -19,21 +19,21 @@ window.addEventListener('DOMContentLoaded', () => {
 
 })
 window.ChangeGobackB = function () {
-    if (window.location.pathname === "/front_end/zana%20mall/shop.html") {
-        window.location.pathname = "/front_end/zana%20mall/index.html"
+    if (window.location.pathname === "/front_end/zana_mall/shop.html") {
+        window.location.pathname = "/front_end/zana_mall/index.html"
         setTimeout(() => {
             scrollY = 0
         }, 500)
     }
-    else if (window.location.pathname === "/front_end/zana%20mall/product.html") {
-        window.location.pathname = "/front_end/zana%20mall/shop.html"
+    else if (window.location.pathname === "/front_end/zana_mall/product.html") {
+        window.location.pathname = "/front_end/zana_mall/shop.html"
     }
-    else if (window.location.pathname === "/front_end/zana%20mall/cart.html") {
-        window.location.pathname = "/front_end/zana%20mall/shop.html"
+    else if (window.location.pathname === "/front_end/zana_mall/cart.html") {
+        window.location.pathname = "/front_end/zana_mall/shop.html"
     }
 
     else {
-        window.location.pathname = "/front_end/zana%20mall/index.html"
+        window.location.pathname = "/front_end/zana_mall/index.html"
     }
 }
 window.changeHam = function () {
@@ -53,7 +53,7 @@ ham.addEventListener('click', () => {
 
 nav2.style.top = navHeight + 'px'
 
-if (window.location.pathname!=='/front_end/zana%20mall/cart.html') {
+if (window.location.pathname!=='/front_end/zana_mall/cart.html') {
     let container = document.getElementsByClassName('container')[0]
     
     container.addEventListener('click', () => {
@@ -72,10 +72,10 @@ window.slice = function (a, n) {
     return secondS
 }
 
-if (window.location.pathname === '/front_end/zana%20mall/shop.html' || window.location.pathname === '/front_end/zana%20mall/index.html') {
+if (window.location.pathname === '/front_end/zana_mall/shop.html' || window.location.pathname === '/front_end/zana_mall/index.html') {
 
     function showProduct(id) {
-        window.location.href = "/front_end/zana%20mall/product.html?id=" + id
+        window.location.href = "/front_end/zana_mall/product.html?id=" + id
     }
 
     let cards = document.getElementsByClassName('card-pro')
@@ -87,7 +87,7 @@ if (window.location.pathname === '/front_end/zana%20mall/shop.html' || window.lo
         })
         
     }
-    if (window.location.pathname === '/front_end/zana%20mall/shop.html') {
+    if (window.location.pathname === '/front_end/zana_mall/shop.html') {
         for (const navItem of navItems) {
             navItem.classList.remove('active')
         }
@@ -106,7 +106,7 @@ if (window.location.pathname === '/front_end/zana%20mall/shop.html' || window.lo
     
 }
 
-if (window.location.pathname === '/front_end/zana%20mall/about.html') {
+if (window.location.pathname === '/front_end/zana_mall/about.html') {
     for (const navItem of navItems) {
         navItem.classList.remove('active')
     }
@@ -115,14 +115,14 @@ if (window.location.pathname === '/front_end/zana%20mall/about.html') {
     }
 }
 
-if (window.location.pathname === '/front_end/zana%20mall/cart.html') {
+if (window.location.pathname === '/front_end/zana_mall/cart.html') {
     for (const navItem of navItems) {
         navItem.classList.remove('active')
     }
     cartButtons.classList.add('active')
     console.log('done')
 }
-if (window.location.pathname === '/front_end/zana%20mall/product.html') {
+if (window.location.pathname === '/front_end/zana_mall/product.html') {
     for (const navItem of navItems) {
         navItem.classList.remove('active')
     }
