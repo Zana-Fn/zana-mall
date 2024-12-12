@@ -136,7 +136,7 @@ if (window.location.pathname.includes('index.html')) {
 
 }
 
-if (window.location.pathname === '/front_end/zana_mall/shop.html') {
+if (window.location.pathname.includes('shop.html')) {
     console.log('zzz')
     let addToCarts = document.querySelectorAll('.add-to-cart')
     addToCarts.forEach(button => {
@@ -154,7 +154,7 @@ if (window.location.pathname === '/front_end/zana_mall/shop.html') {
     })
 
 }
-if (window.location.pathname === '/front_end/zana_mall/product.html') {
+if (window.location.pathname.includes('product.html')) {
     console.log('zzz')
     setTimeout(() => {
         let addToCart = document.querySelector('.add-to-cart')
