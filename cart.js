@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-if (window.location.pathname === '/front_end/zana_mall/index.html') {
+if (window.location.pathname.includes('index.html')) {
     console.log('zzz')
     let addToCarts = document.querySelectorAll('.add-to-cart')
     addToCarts.forEach(button => {
