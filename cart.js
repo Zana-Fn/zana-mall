@@ -137,35 +137,35 @@ if (window.location.pathname === '/zana_mall/index.html') {
 }
 
 if (window.location.pathname === '/zana_mall/shop.html') {
-    console.log('zzz')
-    let addToCarts = document.querySelectorAll('.add-to-cart')
-    addToCarts.forEach(button => {
-        button.addEventListener('click', () => {
-            console.log('zzz')
-            // اطلاعات محصول را از عناصر HTML مرتبط دریافت کنید
-            const productElement = button.closest('.card-pro');
-            const productId = productElement.getAttribute('data-id');
-            const productName = productElement.getAttribute('data-name');
-            const productPrice = parseFloat(productElement.getAttribute('data-price'));
+        console.log('zzz')
+        let addToCarts = document.querySelectorAll('.add-to-cart')
+        addToCarts.forEach(button => {
+            button.addEventListener('click', () => {
+                console.log('zzz')
+                // اطلاعات محصول را از عناصر HTML مرتبط دریافت کنید
+                const productElement = button.closest('.card-pro');
+                const productId = productElement.getAttribute('data-id');
+                const productName = productElement.getAttribute('data-name');
+                const productPrice = parseFloat(productElement.getAttribute('data-price'));
 
-            // افزودن محصول به سبد خرید
-            addToCartPage(productId, productName, productPrice);
-        });
-    })
-
-}
-if (window.location.pathname === '/zana_mall/product.html') {
-    console.log('zzz')
-    setTimeout(() => {
-        let addToCart = document.querySelector('.add-to-cart')
-        let price = document.getElementsByClassName('product-info')[0].children[1].children[0].textContent.slice(8)
-        let params = new URLSearchParams(window.location.search);
-        let productId = params.get("id")
-        let productName = document.getElementsByClassName('product-info')[0].children[0].textContent
-        addToCart.addEventListener('click', () => {
-            let proNumber = document.getElementsByClassName('quantity')[0].children[0].value
-            addToCartPage(productId, productName, price, proNumber);
+                // افزودن محصول به سبد خرید
+                addToCartPage(productId, productName, productPrice);
+            });
         })
-    }, 1200);
 
-}
+    }
+    if (window.location.pathname === '/zana_mall/product.html') {
+        console.log('zzz')
+        setTimeout(() => {
+            let addToCart = document.querySelector('.add-to-cart')
+            let price = document.getElementsByClassName('product-info')[0].children[1].children[0].textContent.slice(8)
+            let params = new URLSearchParams(window.location.search);
+            let productId = params.get("id")
+            let productName = document.getElementsByClassName('product-info')[0].children[0].textContent
+            addToCart.addEventListener('click', () => {
+                let proNumber = document.getElementsByClassName('quantity')[0].children[0].value
+                addToCartPage(productId, productName, price, proNumber);
+            })
+        }, 1200);
+
+    }
