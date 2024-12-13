@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-if (window.location.pathname === '/zana_mall/index.html') {
+if (window.location.pathname === '/zana-mall/index.html') {
     console.log('zzz')
     let addToCarts = document.querySelectorAll('.add-to-cart')
     addToCarts.forEach(button => {
@@ -136,7 +136,7 @@ if (window.location.pathname === '/zana_mall/index.html') {
 
 }
 
-if (window.location.pathname === '/zana_mall/shop.html') {
+if (window.location.pathname === '/zana-mall/shop.html') {
         console.log('zzz')
         let addToCarts = document.querySelectorAll('.add-to-cart')
         addToCarts.forEach(button => {
@@ -154,7 +154,7 @@ if (window.location.pathname === '/zana_mall/shop.html') {
         })
 
     }
-    if (window.location.pathname === '/zana_mall/product.html') {
+    if (window.location.pathname === '/zana-mall/product.html') {
         console.log('zzz')
         setTimeout(() => {
             let addToCart = document.querySelector('.add-to-cart')
