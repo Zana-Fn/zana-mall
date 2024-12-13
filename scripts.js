@@ -72,7 +72,7 @@ window.slice = function (a, n) {
     return secondS
 }
 
-if (window.location.pathname === '/zana-mall/shop.html' || window.location.pathname === '/zana-mall/index.html') {
+if (window.location.pathname === '/zana-mall/shop.html' || window.location.pathname === '/zana-mall/index.html' || window.location.pathname === '/zana-mall/') {
 
     function showProduct(id) {
         window.location.href = "/zana-mall/product.html?id=" + id
