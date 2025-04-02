@@ -39,7 +39,7 @@
             <li class="nav-items home"><a href="{% url 'search' %}" class="{% if 'search/' in request.path %}active{% endif %}">Search</a></li>           
 
             {% endif%}
-            <li class="nav-items home"><a href="{% url 'home' %}" class="{% if '/home/' in request.path %}active{% endif %}">Home</a></li> 
+            <li class="nav-items home"><a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
             <li class="nav-items shop"><a href="{% url 'shop' %}" class="{% if '/shop/' in request.path or '/product/' in request.path %}active{% endif%}">Shop</a></li>
             <li class="nav-items about"><a href="{% url 'about' %}" class="{% if '/about/' in request.path %}active{% endif%}">About</a></li>
             <li class='cart-logo'><a class="{% if '/cart/' in request.path %}active{% endif %}" href='{% url "cart" %}'><span class='cart-count'>{{ cart | length}}</span><span class='fa fa-shopping-basket'></span></a></li>
@@ -53,7 +53,7 @@
 </nav>
 <nav id="second-nav">
     <ul>
-        <li class="nav-items home"><a href="{% url 'home' %}" class="{% if '/home/' in request.path %}active{% endif %}">Home</a></li>
+        <li class="nav-items home"><a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
         <li class="nav-items shop"><a href="{% url 'shop' %}" class="{% if '/shop/' in request.path %}active{% endif %}">Shop</a></li>
         <li class="nav-items about"><a href="{% url 'about' %}" class="{% if '/about/' in request.path %}active{% endif %}">About</a></li>
         <li class="nav-items bootstrap-scope {% if 'profile' in request.path %}active{% endif %}">

@@ -28,6 +28,7 @@ def update_info(request):
         return redirect('home')
 
 def home(request):
+    print(request.path)
     products=Product.objects.order_by('-discount_p')[:4]
     return render(request, 'index.html', {'products':products})
 
