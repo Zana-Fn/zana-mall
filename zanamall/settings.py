@@ -111,6 +111,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT=os.path.join(BASE_DIR, 'static')
 MEDIA_URL='media/'
 MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
 
@@ -118,3 +119,6 @@ MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#postgresql://mydatabase_046p_user:Nrjg3KBUdeu0ujvKaaHIpnDRVgn7mQNp@dpg-cvmmfih5pdvs73898hrg-a/mydatabase_046p
