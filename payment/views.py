@@ -57,7 +57,7 @@ def process_order(request):
             user_profile.update(phone=phone,address1=address1, address2=address2, city=city)
 
             full_name=user_profile.first().full_name
-            full_address=f'{user_shipping['address1']}\n{user_shipping['address2']}\n{user_shipping['city']}'
+            full_address=f"{user_shipping['address1']} \n{user_shipping['address2']}\n{user_shipping['city']}"
             user=request.user
             email=user.email
 
