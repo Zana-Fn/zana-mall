@@ -1,0 +1,51 @@
+{% extends 'base.html'%}
+{% block title%}Orders{% endblock%}
+{% block header%}
+{% load humanize %}
+
+<style>
+    
+
+</style>
+{% endblock %}
+{% block content%}
+    <div data-barba="wrapper">
+        <div class="pre-page" data-url="{% url 'home' %}">
+            <h4>Go Back</h4>
+        </div>
+        <div class="welcome-2">
+            <h2>#ORDER DETAILS</h2>
+        </div>
+        <center>
+            <div class='checkout-section'>
+                <div class='header'><h3>Order {{num}} - {{order.amount_paid | intcomma}} T</h3></div>
+                <div class='footer'>
+                    <center>
+                        <div class='pro-details'>
+                            <div>
+                                <strong>name:</strong> {{order.full_name}}<br>
+                                <strong>email:</strong> {{order.email}}<br>
+                                <strong>Address:</strong> {{order.shipping_address}}<br>
+                                <strong>Order Date:</strong> {{order.date_ordered|date:"Y-m-d & H:i:s"}}<br>
+                                <strong>Last Update:</strong> {{order.last_update|date:"Y-m-d & H:i:s"}}<br>
+                                <strong>Status:</strong> {{order.status}}<br>
+                            <hr>
+                            </div>
+                        </div>
+                        <strong>Products:</strong><br><br>
+                        {% for item in items %}
+                        
+                        {{item.product}} | Quantity: {{item.quantity}} | Price: {{item.price |intcomma}}<br>
+                    
+                        {% endfor %}
+                    </center>
+                    
+                </div>
+                   
+            </div>
+            <button style='font-size: 1rem;' class='back-button'><a href='{% url "orders" %}'>Back to Orders Page</a></button>
+        </center>
+            
+    </div>
+
+{% endblock %}

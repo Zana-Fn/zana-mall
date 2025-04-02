@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block title%}product Details{% endblock%}
+{% load humanize %}
+{% block header%}
+<style>
+    .space{
+        height: 90px !important;
+    }
+    .product-info h5 .del{
+        margin-left: 2rem;
+    }
+    .pre-page{
+        top: 11%;
+    }
+    .product-container a{
+        color: #fff !important;
+    }
+    #add-to-cart{
+        cursor: pointer;
+    }
+
+</style>
+{% endblock %}
+{% block content%}
+<div class="pre-page" data-url="{% url 'shop' %}">
+    <h4>Go Back</h4>
+</div>
+<div class="products">
+    <section class="product-container" id=${id}>
+        <!-- left side -->
+        <div class="img-card">
+            <div class="main-img">
+                <img src="{{ product.main_image.url}}" alt="" id="featured-image">
+            </div>
+            <!-- small img -->
+            <div class="small-card">
+                <img src="{{ product.main_image.url}}" alt="" class="small-Img">
+                <img src="{{ product.extra_image.url}}" alt="" class="small-Img">
+            </div>
+        </div>
+        <!-- Right side -->
+        <div class="product-info">
+            <h3>{{ product.name}}</h3>
+            <h4 style=' margin-bottom: 3px;'>Quantity:</h4>
+            <select style='width: 12%;' id='cart-qty'>
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+            </select>
+            <br><br>
+            {% if product.is_sale%}
+            <h5><span>Price: {{ product.discountedPrice | intcomma}}</span> <del>  {{ product.price | intcomma}}</del></h5>
+            {% else %}
+            <h5><span>Price: {{ product.price | intcomma}}</span></h5>
+            {% endif %}
+            <p>{{ product.description }}</p>
+            <button type='button' value='{{ product.id }}' data-id='{{ product.id }}' id='add-to-cart'>Add To Cart</button> <br><br>
+            <button class='back-button'><a href="{% url 'shop' %}">Back to Shop page</a></button>
+        </div>
+    </section>
+</div>
+{% endblock %}
+{% block script%}
+<script>
+    mainImg=document.getElementsByClassName('img-card')[0].children[0]
+    extraImg=document.getElementsByClassName('small-card')[0]
+
+    for (const img of extraImg.children) {
+        img.addEventListener('click', () =>{
+        mainImg.children[0].src=img.src
+        })
+    }
+
+    $(document).on('click','#add-to-cart', function(e){
+        e.preventDefault();
+        
+        $.ajax({
+            type: 'POST',
+            url: '{% url 'cart_add' %}',
+            data:{
+                product_id: $('#add-to-cart').val(),
+                product_qty: $('#cart-qty option:selected').text(),
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                action: 'post'
+            },
+
+            success: function(json){
+                cartLogo=document.getElementsByClassName('cart-logo')[0].textContent=json.qty
+                location.reload()
+            },
+            error: function(xhr, errmsg, err){
+                console.log(xhr)
+            }
+
+        })
+    })
+
+</script>
+
+
+{% endblock%}
+        
+
+

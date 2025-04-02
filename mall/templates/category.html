@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block title%}{{category.name}}{% endblock%}
+{% block header%}
+<style>
+    #detail-button{
+        display: block;
+        position: relative;
+        bottom: 35%;
+        color:#4b0d49;
+        border-bottom-left-radius: 47%;
+        border-bottom-right-radius: 47%;
+        padding: 4% 7%;
+        border: none;
+        background-color:#e6c63b;
+        text-align: center;
+    }
+</style>
+
+{% endblock %}
+{% block content%}
+<div data-barba="wrapper">
+    <div class="pre-page" data-url="{% url 'home' %}">
+        <h4>Go Back</h4>
+    </div>
+    <div class="welcome-2">
+        <h2 style='text-transform: uppercase;'>#{{category.name}}</h2>
+    </div>
+    <div class="container">
+        <div class="feachred-products">
+            <div class="cards">
+                {% for product in products %}
+                <div id="{{ product.id }}" class="card-pro">
+                    <div class="img"><img class="feachred-img" src="{{product.main_image.url}}" alt=""></div>
+                    <h4>{{ product.name}}</h4>
+                    <div class="stars" >
+                    {% with ''|center:product.star as range %}
+                        {% for _ in range %}
+                        <i class="fa-solid fa-star fa-xs"></i>
+                        {% endfor %}
+                    {% endwith %}
+                    </div>
+                    {% if product.is_sale %}
+                    <div class="desc">
+                        <div class='price'>
+                            <p>{{ product.discountedPrice | intcomma }} </p>
+                            <s>{{ product.price | intcomma }}</s>
+                        </div>
+                        <div class='is-saled'><span class='percentage'>{{ product.discount_p}}%</span>|<span class='percentage'>Sale</span></div>
+                    </div>
+                    {% else %}
+                    <div class="desc">
+                        <p>{{ product.price | intcomma }}</p>
+                    </div>
+                    {% endif%}
+                    <a href="{% url 'product' product.id %}" ><div id='detail-button'>Deatails</div></a>
+                    
+                </div>
+                {% endfor %}
+               
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

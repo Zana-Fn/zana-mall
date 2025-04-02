@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title%}Sign up{% endblock %}
+{% block content%}
+<div class="pre-page" data-url="{% url 'home' %}">
+    <h4>Go Back</h4>
+</div>
+<div data-barba="wrapper">
+   <div class="welcome-2">
+       <h2>#PROFILE</h2>
+       
+   </div>
+   <h3 class='signup-par'>Edit your Profile</h3>
+   <div class="detail-a">
+      
+       <div class='main-form-container'>
+        <div class="form-container signup">
+            <form method='POST' action="{% url 'update' %}">
+                {% csrf_token %}
+                {{ user_form.first_name }}
+                {{ user_form.last_name }}
+                {{ user_form.username }}
+                {{ user_form.email }}                
+                <button type='submit'>Change</button>
+                <div class='link-to-password'><a href='{% url "update_password" %}'>Edit password??</a></div>
+                
+            </form>
+        </div>
+       </div>
+       
+   </div>
+</div>
+{% endblock %}

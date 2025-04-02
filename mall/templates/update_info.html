@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title%}Update Info{% endblock %}
+{% block content%}
+<div class="pre-page" data-url="{% url 'home' %}">
+    <h4>Go Back</h4>
+</div>
+<div data-barba="wrapper">
+   <div class="welcome-2">
+       <h2>#PROFILE</h2>
+       
+   </div>
+   <h3 class='signup-par'>You can Edit your Profile</h3>
+   <div class="update-info-form">
+        <div class='update-form-container'>
+            <form method='POST' action="{% url 'update_info' %}">
+                {% csrf_token %}
+                <div class='forms'>
+                    <div class='form'>
+                        <center>
+                            <h3>User Information</h3>
+                            {{user_form.as_p}}
+                        </center>
+                                   
+                    </div>
+                    
+                </div>
+                <button type='submit'>Change</button>
+            </form>
+        </div>
+        
+        
+   </div>
+</div>
+{% endblock %}

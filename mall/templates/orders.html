@@ -1,0 +1,88 @@
+{% extends 'base.html'%}
+{% load humanize %}
+{% block title%}Orders{% endblock%}
+{% block header%}
+
+<style>
+    
+
+</style>
+{% endblock %}
+{% block content%}
+    <div data-barba="wrapper">
+        <div class="pre-page" data-url="{% url 'home' %}">
+            <h4>Go Back</h4>
+        </div>
+        <div class="welcome-2">
+            <h2>#ORDERS</h2>
+        </div>
+        <br><br>
+        <center>
+            {% if other or delivered%}
+            {% if other %}
+            <h2 style='margin-bottom: 0; font-size: 1.4rem;'>Current Orders</h2>
+            <table class='order-table' style='margin-top: 0.25rem;'>
+                <thead>
+                    <tr>
+                        <th style='width: 10%;'>#</th>
+                        <th style='width: 30%;'>Customer</th>
+                        <th style='width: 28%;'>Date</th>
+                        <th style='width: 20%;'>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    {% for order in other%}
+                    <tr>
+                        <td>{{forloop.counter}}: <a href='{% url "order_details" order.id forloop.counter %}'>(view)</a></td>
+                        <td>{{order.full_name}}</td>
+                        <td>{{ order.last_update|date:"Y-m-d & H:i:s"}}</td>
+                        <td>{{order.status}}</td>
+                    </tr>
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+
+            {% endif %}
+            {% if delivered %}
+            <hr class='orders-hr'>
+            <br>
+            <h2 style='margin-bottom: 0; font-size: 1.4rem;'>Delivered Orders</h2>
+            <table style='margin-top: 0.25rem;' class='order-table'>
+                <thead>
+                    <tr>
+                        <th class='delivered' style='width: 10%;'>#</th>
+                        <th class='delivered' style='width: 30%;'>Customer</th>
+                        <th class='delivered' style='width: 28%;'>Date</th>
+                        <th class='delivered' style='width: 20%;'>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    {% for order in delivered %}
+                    <tr>
+                        <td>{{forloop.counter}}: <a href='{% url "order_details" order.id forloop.counter %}'>(view)</a></td>
+                        <td>{{order.full_name}}</td>
+                        <td>{{ order.get_jalali_date }}</td>
+                        <td>{{order.status}}</td>
+                    </tr>
+
+
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+
+            {% else%}
+            <br>
+            <h2 class='empty'>You have no Order.😥</h2>
+            <br><br>
+            {% endif %}
+        </center>
+       
+        
+            
+    </div>
+
+{% endblock %}

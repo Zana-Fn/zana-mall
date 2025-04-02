@@ -1,0 +1,115 @@
+{% extends 'base.html'%}
+{% load humanize%}
+{% block content%}
+    <div data-barba="wrapper">
+        <div class="pre-page" data-url="{% url 'home' %}">
+            <h4>Go Back</h4>
+        </div>
+        <div class="welcome-2">
+            <h2>#YOUR CART</h2>
+        </div>
+        {% if cart_products %}
+        {% for product in cart_products %}
+        <div class="pro-container">
+            <div class="img"><img src="{{ product.main_image.url}}" alt=""></div>
+            <div class='desc'>
+                <div class='name'><h2>{{ product.name }}</h2></div>
+                <div class="nums">
+                    {% if product.is_sale %}
+                    <div class="price">Price: <span class='pr'>{{ product.discountedPrice |intcomma}}</span><span class='pr'><del>{{ product.price |intcomma}}</del></span></div>
+                    {% else %}
+                    <div class="price">Price: {{ product.price |intcomma}}</div>
+                    {% endif %}
+                    
+                    <div class="qty">
+                        Quantity: 
+                        {% for key,value in quantities.items %}
+                            {% if key == product.id|slugify %}
+                            <select style='width: 12%;' id='select{{ product.id }}'>
+                                <option value='1' {% if value == 1 %}selected{% endif %}>1</option>
+                                <option value='2' {% if value == 2 %}selected{% endif %}>2</option>
+                                <option value='3' {% if value == 3 %}selected{% endif %}>3</option>
+                                <option value='4' {% if value == 4 %}selected{% endif %}>4</option>
+                                <option value='5' {% if value == 5 %}selected{% endif %}>5</option>
+                            </select>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class='buttons'>
+                    <button type='button' data-index={{product.id}} class='edit'>Edit</button>
+                    <button type='button' data-index={{product.id}} class='delete'>Delete</button>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+        {% endfor%}
+        <h2 class='total-pr'>Totall Products price: <br>{{total_price|intcomma}}</h2>
+        <h3 class='checkout-button'><a href='{% url "checkout" %}'>Checkout</a></h3>
+        
+        {% else %}
+        <br>
+        <h2 class='empty'>Your cart is empty.😥</h2>
+        <br><br>
+        {% endif%}
+       
+    </div>
+
+{% endblock %}
+{% block script%}
+<script>
+    $(document).on('click','.edit', function(e){
+        e.preventDefault();
+        let product_id= $(this).data('index');
+        let product_qty= $('#select'+product_id+' option:selected').text();
+        console.log(product_qty)
+        $.ajax({
+            type: 'POST',
+            url: '{% url 'cart_update' %}',
+            data:{
+                product_id: $(this).data('index'),
+                product_qty: product_qty,
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                action: 'post'
+            },
+
+            success: function(json){
+                location.reload()
+                
+            },
+            error: function(xhr, errmsg, err){
+                console.log(err)
+            }
+
+        })
+    })
+
+    $(document).on('click','.delete', function(e){
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '{% url 'cart_delete' %}',
+            data:{
+                product_id: $(this).data('index'),
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                action: 'post'
+            },
+
+            success: function(json){
+                
+                location.reload()
+                
+            },
+            error: function(xhr, errmsg, err){
+                console.log(err)
+            }
+
+        })
+    })
+
+</script>
+
+
+{% endblock%}

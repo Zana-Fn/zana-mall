@@ -1,0 +1,86 @@
+{% load static %}
+<div class="container" data-barba="container"></div>
+<nav id="main-nav">
+    <ul>
+            <li class="main-logo-nav"><img src='{% static "images/logo-img-2.jpg" %}' alt="logo"></li>
+            {% if user.is_authenticated %}
+            <li class="nav-items auth-icon logout"><a href="{% url 'logout' %}" class="{% if '/logout/' in request.path %}active{% endif %}">Log out</a></li>
+            <li class="nav-items bootstrap-scope {% if 'profile' in request.path %}active{% endif %}">
+                <div class="dropdown">
+                    <span>Profile<i class='fa-solid fa-chevron-down'></i></span>
+                    <div class="dropdown-content small">
+                      <p><a href="{% url 'update' %}">User</a></p>
+                      <p><a href="{% url 'update_info' %}">Profile</a></p>
+                      <p><a href="{% url 'orders' %}">Orders</a></p>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-items auth-icon home">|</li>
+            {% else %}
+            <li class="nav-items auth-icon login"><a href="{% url 'login' %}" class="{% if '/login/' in request.path %}active{% endif %}">Log in</a></li>
+            <li class="nav-items auth-icon login"><a href="{% url 'signup' %}" class="{% if '/signup/' in request.path %}active{% endif %}">Sign up</a></li>
+            <li class="nav-items auth-icon home">|</li>
+            {% endif%}
+
+            {% if 'shop/' in request.path or 'category/' in request.path %}
+            <li class="nav-items bootstrap-scope {% if '/category/' in request.path %}active{% endif %}">
+                <div class="dropdown">
+                    <span>Categories<i class='fa-solid fa-chevron-down'></i></span>
+                    <div class="dropdown-content">
+                      <p><a href="{% url 'shop' %}">All Products</a></p>
+                      <p><a href="{% url 'category' 'clothes' %}">Clothes</a></p>
+                      <p><a href="{% url 'category' 'jeans' %}">Jeans</a></p>
+                      <p><a href="{% url 'category' 'shoes' %}">Shoes</a></p>
+                      <p><a href="{% url 'category' 'backpack' %}">Back pack</a></p>
+                      <p><a href="{% url 'category' 'gloves' %}">gloves</a></p>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-items home"><a href="{% url 'search' %}" class="{% if 'search/' in request.path %}active{% endif %}">Search</a></li>           
+
+            {% endif%}
+            <li class="nav-items home"><a href="{% url 'home' %}" class="{% if '/home/' in request.path %}active{% endif %}">Home</a></li> 
+            <li class="nav-items shop"><a href="{% url 'shop' %}" class="{% if '/shop/' in request.path or '/product/' in request.path %}active{% endif%}">Shop</a></li>
+            <li class="nav-items about"><a href="{% url 'about' %}" class="{% if '/about/' in request.path %}active{% endif%}">About</a></li>
+            <li class='cart-logo'><a class="{% if '/cart/' in request.path %}active{% endif %}" href='{% url "cart" %}'><span class='cart-count'>{{ cart | length}}</span><span class='fa fa-shopping-basket'></span></a></li>
+            <li class="ham">
+                <span class="ham-line one"></span>
+                <span class="ham-line two"></span>
+                <span class="ham-line three"></span>
+            </li>
+        </ul>
+
+</nav>
+<nav id="second-nav">
+    <ul>
+        <li class="nav-items home"><a href="{% url 'home' %}" class="{% if '/home/' in request.path %}active{% endif %}">Home</a></li>
+        <li class="nav-items shop"><a href="{% url 'shop' %}" class="{% if '/shop/' in request.path %}active{% endif %}">Shop</a></li>
+        <li class="nav-items about"><a href="{% url 'about' %}" class="{% if '/about/' in request.path %}active{% endif %}">About</a></li>
+        <li class="nav-items bootstrap-scope {% if 'profile' in request.path %}active{% endif %}">
+            <div class="dropdown pro">
+                <span>Profile<i class='fa-solid fa-chevron-down'></i></span>
+                <div class="dropdown-content small">
+                  <p><a href="{% url 'update' %}">User</a></p>
+                  <p><a href="{% url 'update_info' %}">Profile</a></p>
+                  <p><a href="{% url 'orders' %}">Orders</a></p>
+                </div>
+            </div>
+        </li>
+        <li class="nav-items home"><a href="{% url 'search' %}" class="{% if 'search/' in request.path %}active{% endif %}">Search</a></li>           
+        
+        <li class="nav-items bootstrap-scope {% if '/category/' in request.path %}active{% endif %}">
+            <div class="dropdown">
+                <span>Categories<i class='fa-solid fa-chevron-down'></i></span>
+                <div class="dropdown-content">
+                  <p><a href="{% url 'shop' %}">All Products</a></p>
+                  <p><a href="{% url 'category' 'clothes' %}">Clothes</a></p>
+                  <p><a href="{% url 'category' 'jeans' %}">Jeans</a></p>
+                  <p><a href="{% url 'category' 'shoes' %}">Shoes</a></p>
+                  <p><a href="{% url 'category' 'backpack' %}">Back pack</a></p>
+                  <p><a href="{% url 'category' 'gloves' %}">gloves</a></p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</nav>
+<div class="space"></div>

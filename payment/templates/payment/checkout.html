@@ -1,0 +1,61 @@
+{% extends 'base.html'%}
+{% load humanize%}
+{% block title%}Checkout{% endblock%}
+{% block header%}
+<style>
+    .back-button{
+        font-size: 1rem;
+    }
+</style>
+{% endblock%}
+{% block content%}
+<div data-barba="wrapper">
+    <div class="pre-page" data-url="{% url 'home' %}">
+        <h4>Go Back</h4>
+    </div>
+    <div class="welcome-2">
+        <h2>#YOUR CHECKOUT</h2>
+    </div>
+    <center>
+        <div class='checkout-section'>
+            <div class='header'><h3>Summary of your Orders:</h3></div>
+            <div class='footer'>
+                {% for product in products %}
+                <center>
+                    <div class='pro-details'>
+                        <div class='name'>{{product.name}}</div>
+                        <div class='price'>Price: {% if product.is_sale %}{{product.discountedPrice |intcomma}}{% else %}{{product.price |intcomma}}{% endif %}</div>
+                        {% for key,value in quantities.items %}
+                            {% if key == product.id|slugify %}
+                            <div class='quantity'>Quantity:  {{ value }}</div>
+                            {% endif %}
+                        {% endfor %}
+                        
+                        <hr>
+                    </div>
+                </center>
+                
+                {% endfor %}
+            </div>
+               
+            <div class='total-price'>
+                <h3 class='total-pr'>Totall Products price: <br>{{total_price|intcomma}}</h3>
+                <button class='back-button'><a href="{% url 'cart' %}">Back to Cart</a></button>
+            </div>
+        </div>
+        <div class='checkout-section'>
+            <div class='header'>Shipping Info:</div>
+            <div class='footer'>
+                <form method='POST' action='{% url "confirm_order" %}'>
+                    {% csrf_token %}
+                    {{shipping_form.as_p}}
+                    <button type='submit' class='back-button' style='font-size: 1.25rem; color: #fff !important; cursor: pointer;'>Continue</button>
+                </form>
+                
+            </div>
+            
+        </div>
+    </center>
+</div>
+
+{% endblock %}
