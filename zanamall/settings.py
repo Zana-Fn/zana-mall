@@ -8,9 +8,9 @@ DEFAULT_FILE_STORAGE="storages.backends.s3boto3.S3Boto3Storage"
 AWS_ACCESS_KEY_ID="bbaa294f-1c77-44c1-a4c4-16e070ff98c2"
 AWS_SECRET_ACCESS_KEY="e39a23a6371c510286878577094cb00469fa3b04bf02a6ebaef9fbb15140c472"
 AWS_STORAGE_BUCKET_NAME="myimgcloud"
-AWS_S3_ENDPOINT_URL="https://s3.ir-thr-at1.arvanstorage.com"
+AWS_S3_ENDPOINT_URL="https://s3.ir-thr-at1.arvanstorage.ir"
 AWS_S3_ADDRESSING_STYLE="virtual"
-AWS_S3_CUSTOM_DOMAIN=f"{AWS_STORAGE_BUCKET_NAME}.s3.ir-thr-at1.arvanstorage.com"
+AWS_S3_CUSTOM_DOMAIN=f"https://myimgcloud.s3.ir-thr-at1.arvanstorage.ir"
 MEDIA_URL=f"https://{AWS_S3_CUSTOM_DOMAIN}/"
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
