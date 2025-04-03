@@ -10,7 +10,7 @@ AWS_SECRET_ACCESS_KEY="e39a23a6371c510286878577094cb00469fa3b04bf02a6ebaef9fbb15
 AWS_STORAGE_BUCKET_NAME="myimgcloud"
 AWS_S3_ENDPOINT_URL="https://s3.ir-thr-at1.arvanstorage.ir"
 AWS_S3_ADDRESSING_STYLE="virtual"
-AWS_S3_CUSTOM_DOMAIN=f"https://myimgcloud.s3.ir-thr-at1.arvanstorage.ir"
+AWS_S3_CUSTOM_DOMAIN=f"https://{AWS_STORAGE_BUCKET_NAME}.s3.ir-thr-at1.arvanstorage.ir"
 MEDIA_URL=f"https://{AWS_S3_CUSTOM_DOMAIN}/"
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
