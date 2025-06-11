@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-@y-6h#9(r6iwt-ka@m%civ^#6)0m-k#rd2%t$fqiru+zw8ndfo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['zana-mall.onrender.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
